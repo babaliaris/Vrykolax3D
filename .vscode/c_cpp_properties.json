@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/Projects/Vrykolax3D/src/include/"
             ],
-            "defines": ["VX3D_OS_LINUX", "VX3D_PLATFORM_PC", "VX3D_DEBUG_ON"],
+            "defines": ["VX3D_OS_LINUX", "VX3D_PLATFORM_PC", "VX3D_DEBUG_ON",
+                        "VAMPTEST_MAIN"],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c99",
             "cppStandard": "c++11",

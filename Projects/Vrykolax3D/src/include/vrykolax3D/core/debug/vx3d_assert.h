@@ -3,10 +3,10 @@
 #include <vrykolax3D/core/debug/vx3d_logger.h>
 
 #ifdef VX3D_DEBUG_ON
-    #define VX3D_ASSERT(cond, fmt, ...)\
+    #define VX3D_ASSERT(cond)\
         if ( !(cond) )\
         {\
-            VX3D_COLORFUL_LOG(VX3D_ANSI_ERROR, "ASSERTION FAILED", "Vrykolax3D", __FILE__, __LINE__, fmt, ##__VA_ARGS__);\
+            VX3D_COLORFUL_LOG_MSG(VX3D_ANSI_ERROR, "ASSERTION FAILED", "Vrykolax3D", __FILE__, __LINE__, #cond);\
             vx3d_exit(0);\
         }
 

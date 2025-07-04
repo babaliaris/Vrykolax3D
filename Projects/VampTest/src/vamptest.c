@@ -1,7 +1,6 @@
-#include <vrykolax3D/vrykolax3D.h>
+#define VAMPTEST_MAIN
+#include <vamptest/vamptest.h>
 
-int main()
+void vampUserEntryPoint(VampTestApp *app)
 {
-    VX3D_INFO("Hello VampTest");
-    return 0;
 }

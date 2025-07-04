@@ -10,6 +10,6 @@ int main()
 
     VX3D_COND(1==1, VX3D_WARN("Something when %s", "WRONG!"))
 
-    VX3D_ASSERT(0==1, "0 is not equal to 1")
+    VX3D_ASSERT(0==1)
     return 0;
 }
