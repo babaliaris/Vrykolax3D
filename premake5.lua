@@ -43,4 +43,5 @@ workspace "Vrykolax3D"
         defines {"VX3D_OS_MACOSX"}
 
     include "Projects/Vrykolax3D/vrykolax3d.lua"
+    include "Projects/VampTest/vamptest.lua"
     include "Projects/Sandbox/sandbox.lua"
