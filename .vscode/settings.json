@@ -1,0 +1,22 @@
+{
+    "Lua.diagnostics.globals": [
+        "workspace",
+        "platforms",
+        "configurations",
+        "startproject",
+        "filter",
+        "symbols",
+        "optimize",
+        "defines",
+        "include",
+        "project",
+        "kind",
+        "language",
+        "cdialect",
+        "objdir",
+        "targetdir",
+        "files",
+        "includedirs",
+        "targetname"
+    ]
+}
