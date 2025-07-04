@@ -13,5 +13,9 @@ project "Sandbox"
         "src/**.h"
     }
 
+    links {
+        "Vrykolax3D"
+    }
+
     filter "platforms:PC"
         kind "ConsoleApp"

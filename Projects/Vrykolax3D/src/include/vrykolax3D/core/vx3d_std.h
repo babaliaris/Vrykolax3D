@@ -31,7 +31,7 @@
     #define VX3D_ANSI_ERROR "\033[31m"
     #define VX3D_ANSI_FATAL "\033[41m"
     #define VX3D_ANSI_DEBUG "\033[36m"
-    #define VX3D_ANSI_NOTE  "\033[34m"
+    #define VX3D_ANSI_NOTE  "\033[35m"
 
     //Fixed size types.
     #define VX3D_SIZE_T   size_t
@@ -51,6 +51,21 @@
 #else
     #error Platform not supported...
 #endif
+
+
+#define VX3D_COND(cond, x)\
+    if ( (cond) ) {x;}
+
+
+
+/** 
+ * @brief Stops the programm and exits with a status code.
+ * 
+ * This function wraps the standard `exit` function.
+ * 
+ * @param[in] int The status reason of the exit.
+ */
+VX3D_EXTERN_C VX3D_API void vx3d_exit(int status);
 
 
 

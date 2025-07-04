@@ -17,6 +17,11 @@
         "targetdir",
         "files",
         "includedirs",
-        "targetname"
-    ]
+        "targetname",
+        "links"
+    ],
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "vx3d_logger.h": "c"
+    }
 }

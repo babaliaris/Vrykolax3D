@@ -1,5 +1,14 @@
 #include <vrykolax3D/core/vx3d_std.h>
 
+void vx3d_exit(int status)
+{
+    #ifdef VX3D_PLATFORM_PC
+        exit(status);
+    #else
+        #error Platform not supported.
+    #endif
+}
+
 void vx3D_printf(const char *fmt, ...)
 {
     #ifdef VX3D_PLATFORM_PC
