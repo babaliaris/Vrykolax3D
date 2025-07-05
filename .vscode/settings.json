@@ -23,6 +23,8 @@
     "files.associations": {
         "*.dbclient-js": "javascript",
         "vx3d_logger.h": "c",
-        "vamptest.h": "c"
+        "vamptest.h": "c",
+        "vx3d_assert.h": "c",
+        "random": "c"
     }
 }
