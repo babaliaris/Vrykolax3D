@@ -16,16 +16,19 @@ project "Vrykolax3D"
 
 
     -- ======================|PC Options|====================== --
-    filter "platforms:PC"
-        kind (
-            (_OPTIONS["libtype"] == nil or _OPTIONS["libtype"] == "shared")
-            and "SharedLib" or "StaticLib"
-        )
-
+    filter "platforms:pc_shared or pc_static"
         files {
             "src/source/platform/pc/**.c",
             "src/include/vrykolax3D/platform/pc/**.h"
         }
-
-        defines "VX3D_STATIC_LIB"
     -- ======================|PC Options|====================== --
+
+    -- Shared Library.
+    filter "platforms:pc_shared"
+        kind "SharedLib"
+        defines "VX3D_SHARED_LIB"
+
+    --Static Library.
+    filter "platforms:pc_static"
+        kind "StaticLib"
+        defines "VX3D_STATIC_LIB"

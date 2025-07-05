@@ -17,5 +17,5 @@ project "VampTest"
         "Vrykolax3D"
     }
 
-    filter "platforms:PC"
+    filter "platforms:pc_shared or pc_static"
         kind "ConsoleApp"

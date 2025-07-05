@@ -1,39 +1,28 @@
 workspace "Vrykolax3D"
-    platforms {"pc"}
+    platforms {"pc_shared", "pc_static"}
     configurations {"debug", "release", "dist"}
     startproject "Sandbox"
     targetdir "build/%{cfg.shortname}"
     objdir "%{_WORKING_DIR}/obj/%{cfg.shortname}/%{prj.name}"
 
-    -- Add Static or Shared lib type option. 
-    newoption {
-        trigger = "libtype",
-        value = "TYPE",
-        description = "Choose which type of library to build",
-        allowed = {
-            { "static", "Build Static Library" },
-            { "shared", "Build Shared Library" }
-        }
-    }
-
     -- PC Platform ALL CONFIGURATIONS.
-    filter "platforms:PC"
+    filter "platforms:pc_shared or pc_static"
         defines {"VX3D_PLATFORM_PC"}
 
     -- PC DEBUG
-    filter {"platforms:PC", "configurations:debug"}
+    filter {"platforms:pc_shared or pc_static", "configurations:debug"}
         symbols "On"
         optimize "Off"
         defines {"VX3D_DEBUG_ON"}
 
     -- PC RELEASE
-    filter {"platforms:PC", "configurations:release"}
+    filter {"platforms:pc_shared or pc_static", "configurations:release"}
         symbols "Off"
         optimize "On"
         defines {"VX3D_RELEASE_ON"}
 
     -- PC DIST
-    filter {"platforms:PC", "configurations:dist"}
+    filter {"platforms:pc_shared or pc_static", "configurations:dist"}
         symbols "Off"
         optimize "On"
         defines {"VX3D_DIST_ON"}
