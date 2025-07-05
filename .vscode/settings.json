@@ -18,7 +18,9 @@
         "files",
         "includedirs",
         "targetname",
-        "links"
+        "links",
+        "newoption",
+        "_OPTIONS"
     ],
     "files.associations": {
         "*.dbclient-js": "javascript",

@@ -5,6 +5,17 @@ workspace "Vrykolax3D"
     targetdir "build/%{cfg.shortname}"
     objdir "%{_WORKING_DIR}/obj/%{cfg.shortname}/%{prj.name}"
 
+    -- Add Static or Shared lib type option. 
+    newoption {
+        trigger = "libtype",
+        value = "TYPE",
+        description = "Choose which type of library to build",
+        allowed = {
+            { "static", "Build Static Library" },
+            { "shared", "Build Shared Library" }
+        }
+    }
+
     -- PC Platform ALL CONFIGURATIONS.
     filter "platforms:PC"
         defines {"VX3D_PLATFORM_PC"}
