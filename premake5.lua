@@ -1,5 +1,5 @@
 workspace "Vrykolax3D"
-    platforms {"PC"}
+    platforms {"pc"}
     configurations {"debug", "release", "dist"}
     startproject "Sandbox"
     targetdir "build/%{cfg.shortname}"
