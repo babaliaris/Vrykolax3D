@@ -1,3 +1,43 @@
-obj/
+# Build artifacts.
 build/
+obj/
+bin/
+out/
+
+# Makefiles.
 Makefile
+*.make
+*.makefile
+
+# VS Code / CLion / IDE metadata.
+.vscode/
+.idea/
+
+# Visual Studio.
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+.vs/
+
+# CMake (if you ever use it)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# macOS files.
+.DS_Store
+
+# Compiled objects and libraries.
+*.o
+*.obj
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+*.exe
+*.out
+
+# Logs
+*.log
