@@ -17,6 +17,12 @@
                 color, file, VX3D_ANSI_RESET, VX3D_ANSI_NOTE, line, VX3D_ANSI_RESET,\
                 color, msg, VX3D_ANSI_RESET)
 
+        #define VX3D_COLORFUL_LOG_MEM_LEAK(color, level, who, file, line, user_size)\
+            vx3D_printf("[%s%s%s] %s%s%s:%s%s%s:%s%d%s %s User Size: %ld %s\n",\
+                color, level, VX3D_ANSI_RESET, VX3D_ANSI_NOTE, who, VX3D_ANSI_RESET,\
+                color, file, VX3D_ANSI_RESET, VX3D_ANSI_NOTE, line, VX3D_ANSI_RESET,\
+                color, user_size, VX3D_ANSI_RESET)
+
         #define VX3D_TRACE(fmt, ...)\
             VX3D_COLORFUL_LOG(VX3D_ANSI_TRACE, "TRACE", "Vrykolax3D", __FILE__, __LINE__, fmt, ##__VA_ARGS__);
 
@@ -39,6 +45,8 @@
     #define VX3D_COLORFUL_LOG(color, level, who, file, line, fmt, ...)
 
     #define VX3D_COLORFUL_LOG_MSG(color, level, who, file, line, msg)
+
+    #define VX3D_COLORFUL_LOG_MEM_LEAK(color, level, who, file, line, user_size)
 
     #define VX3D_TRACE(fmt, ...)
 

@@ -1,19 +1,15 @@
 #define VAMPTEST_MAIN
 #include <vamptest/vamptest.h>
 
-VAMP_TEST(math, add)
-{
-    VAMP_ASSERT(1 + 1 == 2)
-}
-
-
-VAMP_TEST(math, sub)
-{
-    VAMP_ASSERT(1 - 1 == -10)
-}
+VAMP_DECLARE(MemoryDebugger, CreateMemoryDebugger);
+VAMP_DECLARE(MemoryDebugger, AllocateOneMemory);
+VAMP_DECLARE(MemoryDebugger, MultipleAllocations);
+VAMP_DECLARE(MemoryDebugger, CheckListIntegrity);
 
 void vampUserEntryPoint(VampTestApp *app)
 {
-    VAMP_REGISTER(app, math, add);
-    VAMP_REGISTER(app, math, sub);
+    VAMP_REGISTER(app, MemoryDebugger, CreateMemoryDebugger);
+    VAMP_REGISTER(app, MemoryDebugger, AllocateOneMemory);
+    VAMP_REGISTER(app, MemoryDebugger, MultipleAllocations);
+    VAMP_REGISTER(app, MemoryDebugger, CheckListIntegrity);
 }

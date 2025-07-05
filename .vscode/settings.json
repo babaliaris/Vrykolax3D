@@ -27,6 +27,9 @@
         "vx3d_logger.h": "c",
         "vamptest.h": "c",
         "vx3d_assert.h": "c",
-        "random": "c"
+        "random": "c",
+        "vx3d_mem_debug.h": "c",
+        "vx3d_std.h": "c",
+        "cstdlib": "c"
     }
 }
