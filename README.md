@@ -12,10 +12,12 @@ git clone --recurse-submodules -j8 https://github.com/babaliaris/Vrykolax3D.git
 
 ##### Linux Example:
 ```
-#If you want a static library, then: --libtype=static
-#You can omit the --libtype option, shared is the default.
-premake5 gmake --libtype=shader
-make config=debug_pc
+premake5 gmake
+make config=debug_pc_shared
+```
+**Makefile Config Options:**
+```
+make help
 ```
 
 ##### Windows Example:
