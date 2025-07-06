@@ -107,7 +107,7 @@ typedef struct vx3DMemoryDebugger
      * 
      * @param[in] self The vx3DMemoryDebugger object.
      * 
-     * @return 1 If there are currently allocated blocks, 0 otherwise.
+     * @returns 1 If there are currently allocated blocks, 0 otherwise.
      */
     char (*checkForLeaks)(struct vx3DMemoryDebugger *self);
 
