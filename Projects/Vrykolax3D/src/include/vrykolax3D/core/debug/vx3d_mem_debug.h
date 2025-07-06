@@ -93,7 +93,7 @@ typedef struct vx3DMemoryDebugger
      * The whole memory block is deinitialized with the value VX3D_MEM_BLOCK_DEAD .
      * 
      * @param[in] self The vx3DMemoryDebugger object.
-     * @param[in,out] user_ptr The user pointer that holds the adrees of the user_segment. We set it to null after freeing the memory.
+     * @param[in,out] user_ptr The user pointer that holds the address of the user_segment. We set it to null after freeing the memory.
      */
     void (*debug_free)(struct vx3DMemoryDebugger *self, void **user_ptr);
 
