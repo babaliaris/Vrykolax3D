@@ -132,7 +132,7 @@ VAMP_TEST(MemoryDebugger, CheckListIntegrity)
         VAMP_ASSERT(currentBlock->m_magic == VX3D_MEM_MAGIC_NUM);
         VAMP_ASSERT(currentBlock->m_line > -1);
         VAMP_ASSERT( vx3D_strcmp(currentBlock->m_filename, __FILE__) == 0 );
-        VAMP_ASSERT(currentBlock->m_user_size == VX3D_SIZEOF(int) );
+        VAMP_ASSERT(currentBlock->m_user_size == VX3D_ALIGN_UP(VX3D_SIZEOF(int), 16) );
 
         //Check user data.
         int *user_ptr = (int *)( (char *)currentBlock + VX3D_SIZEOF(vx3DMemoryHeader) );

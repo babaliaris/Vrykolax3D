@@ -17,14 +17,14 @@ workspace "Vrykolax3D"
 
     -- PC RELEASE
     filter {"platforms:pc_shared or pc_static", "configurations:release"}
-        symbols "Off"
-        optimize "On"
+        symbols "On"
+        optimize "Off"
         defines {"VX3D_RELEASE_ON"}
 
     -- PC DIST
     filter {"platforms:pc_shared or pc_static", "configurations:dist"}
         symbols "Off"
-        optimize "On"
+        optimize "Off"
         defines {"VX3D_DIST_ON"}
 
     -- Diselect all filters.

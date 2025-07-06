@@ -2,6 +2,8 @@
 #include <vrykolax3D/core/debug/vx3d_logger.h>
 #include <vrykolax3D/core/debug/vx3d_assert.h>
 
+
+
 static void *mallocImpl(
     vx3DMemoryDebugger *self,
     VX3D_SIZE_T user_size,
@@ -14,17 +16,22 @@ static void *mallocImpl(
     VX3D_FATAL_ASSERT( vx3D_strlen(filename) < VX3D_MEM_MAX_STR );
     VX3D_FATAL_ASSERT(user_size > 0 && line >-1);
 
+    //Make sure users size is aligned to 16 bytes.
+    VX3D_SIZE_T aligned_user_size = VX3D_ALIGN_UP(user_size, 16);
+
     //Allocate enough memory.
-    char *new_block  = (char *)vx3D_malloc( VX3D_SIZEOF(vx3DMemoryHeader) + user_size + VX3D_SIZEOF(vx3DMemoryFooter) );
+    char *new_block  = (char *)vx3D_malloc( VX3D_SIZEOF(vx3DMemoryHeader) + aligned_user_size + VX3D_SIZEOF(vx3DMemoryFooter) );
+
+    if (!new_block) return NULL;
 
     //Calculate intermediate pointers.
     vx3DMemoryHeader *header_ptr = (vx3DMemoryHeader *)new_block;
-    vx3DMemoryFooter *footer_ptr = (vx3DMemoryFooter *)(new_block + VX3D_SIZEOF(vx3DMemoryHeader) + user_size );
+    vx3DMemoryFooter *footer_ptr = (vx3DMemoryFooter *)(new_block + VX3D_SIZEOF(vx3DMemoryHeader) + aligned_user_size );
     void *user_ptr               = (void *)(new_block + VX3D_SIZEOF(vx3DMemoryHeader) );
 
     //Initialize Header.
     header_ptr->m_magic     = VX3D_MEM_MAGIC_NUM;
-    header_ptr->m_user_size = user_size;
+    header_ptr->m_user_size = aligned_user_size;
     header_ptr->m_line      = line;
     header_ptr->m_next      = NULL;
     header_ptr->m_prev      = NULL;
@@ -35,7 +42,7 @@ static void *mallocImpl(
     footer_ptr->m_magic     = VX3D_MEM_MAGIC_NUM;
 
     //ZERO the user memory.
-    vx3D_memset(user_ptr, 0, user_size);
+    vx3D_memset(user_ptr, 0, aligned_user_size);
 
     //The allocations track list is empty.
     if (self->m_head == NULL && self->m_tail == NULL)

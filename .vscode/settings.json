@@ -20,7 +20,9 @@
         "targetname",
         "links",
         "newoption",
-        "_OPTIONS"
+        "_OPTIONS",
+        "buildoptions",
+        "linkoptions"
     ],
     "files.associations": {
         "*.dbclient-js": "javascript",

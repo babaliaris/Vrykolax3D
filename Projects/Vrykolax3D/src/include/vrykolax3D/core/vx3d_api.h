@@ -39,4 +39,17 @@
 #endif
 
 
+#if defined(_MSC_VER)
+  #define VX3D_ALIGN16 __declspec(align(16))
+  #define VX3D_ALIGN_UP(p, align) (((p) + ((align)-1)) & ~((align)-1))
+
+#elif defined(__GNUC__) || defined(__clang__) || defined(__INTEL_COMPILER)
+  #define VX3D_ALIGN16 __attribute__((aligned(16)))
+  #define VX3D_ALIGN_UP(p, align) (((p) + ((align)-1)) & ~((align)-1))
+
+#else
+  #error "Unknown compiler, please define ALIGN16 for your compiler"
+#endif
+
+
 #endif

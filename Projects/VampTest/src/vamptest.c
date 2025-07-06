@@ -6,6 +6,7 @@ VAMP_DECLARE(MemoryDebugger, AllocateOneMemory);
 VAMP_DECLARE(MemoryDebugger, MultipleAllocations);
 VAMP_DECLARE(MemoryDebugger, CheckListIntegrity);
 VAMP_DECLARE(Memory, MallocAndFree);
+VAMP_DECLARE(Memory, MemStackCreation);
 
 void vampUserEntryPoint(VampTestApp *app)
 {
@@ -14,4 +15,5 @@ void vampUserEntryPoint(VampTestApp *app)
     VAMP_REGISTER(app, MemoryDebugger, MultipleAllocations);
     VAMP_REGISTER(app, MemoryDebugger, CheckListIntegrity);
     VAMP_REGISTER(app, Memory, MallocAndFree);
+    VAMP_REGISTER(app, Memory, MemStackCreation);
 }

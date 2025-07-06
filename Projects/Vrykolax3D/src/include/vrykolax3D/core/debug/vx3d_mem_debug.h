@@ -31,7 +31,7 @@ typedef struct vx3DMemoryHeader
 
     struct vx3DMemoryHeader *m_next;
     struct vx3DMemoryHeader *m_prev;
-}vx3DMemoryHeader;
+}VX3D_ALIGN16 vx3DMemoryHeader;
 
 
 
@@ -44,7 +44,7 @@ typedef struct vx3DMemoryHeader
 typedef struct vx3DMemoryFooter
 {
     VX3D_INT64  m_magic;
-}vx3DMemoryFooter;
+}VX3D_ALIGN16 vx3DMemoryFooter;
 
 
 /**

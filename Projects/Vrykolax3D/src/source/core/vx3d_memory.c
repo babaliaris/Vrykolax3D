@@ -29,3 +29,41 @@ void vx3dMemoryDeinit()
         vx3dDestroyMemoryDebugger(&VX3D_GLOBAL_MEM_DEBUGGER);
     #endif
 }
+
+
+static void *memStackPushImpl(void *src, VX3D_SIZE_T size)
+{
+    return NULL;
+}
+
+
+vx3DMemStack *vx3dCreateMemStack(VX3D_SIZE_T size)
+{
+    VX3D_ASSERT(size > 0);
+
+    vx3DMemStack *new_stack = (vx3DMemStack *)VX3D_MALLOC(VX3D_SIZEOF(vx3DMemStack));
+
+    if (!new_stack)
+    {
+        VX3D_WARN("Out of memory.");
+        return NULL;
+    }
+
+    new_stack->m_buffer = VX3D_MALLOC(size);
+    new_stack->push     = memStackPushImpl;
+
+}
+
+
+void vx3dDestroyMemStack(vx3DMemStack **stack)
+{
+    if (!stack || !(*stack))
+    {
+        VX3D_WARN("Function called with a NULL parameter.");
+        return;
+    }
+
+    VX3D_FREE((*stack)->m_buffer);
+
+    VX3D_FREE(*stack);
+}

@@ -23,3 +23,22 @@ VAMP_TEST(Memory, MallocAndFree)
         VAMP_ASSERT(VX3D_GLOBAL_MEM_DEBUGGER == NULL);
     #endif
 }
+
+
+VAMP_TEST(Memory, MemStackCreation)
+{
+    vx3dMemoryInit();
+
+    vx3DMemStack *stack = vx3dCreateMemStack(2 * VX3D_SIZEOF(int));
+
+    VAMP_ASSERT(stack->m_buffer != NULL);
+    VAMP_ASSERT(stack->push != NULL);
+
+    vx3dDestroyMemStack(&stack);
+
+    #ifdef VX3D_DEBUG_ON
+        VAMP_ASSERT(stack == NULL);
+    #endif
+
+    vx3dMemoryDeinit();
+}
