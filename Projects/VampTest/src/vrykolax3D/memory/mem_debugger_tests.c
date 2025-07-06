@@ -33,7 +33,7 @@ VAMP_TEST(MemoryDebugger, AllocateOneMemory)
     VAMP_ASSERT(debugger->m_allocations == 1);
     VAMP_ASSERT(debugger->checkForLeaks(debugger) == 1);
 
-    debugger->debug_free(debugger, (void *)&mem1);
+    debugger->debug_free(debugger, (void **)&mem1);
 
     VAMP_ASSERT(debugger->m_head == NULL);
     VAMP_ASSERT(debugger->m_tail == NULL);
@@ -76,9 +76,9 @@ VAMP_TEST(MemoryDebugger, MultipleAllocations)
     VAMP_ASSERT(debugger->checkForLeaks(debugger) == 1);
 
     //Free the allocations.
-    debugger->debug_free(debugger, (void *)&mem1);
-    debugger->debug_free(debugger, (void *)&mem2);
-    debugger->debug_free(debugger, (void *)&mem3);
+    debugger->debug_free(debugger, (void **)&mem1);
+    debugger->debug_free(debugger, (void **)&mem2);
+    debugger->debug_free(debugger, (void **)&mem3);
 
     //Check the state of the debugger.
     VAMP_ASSERT(debugger->m_head == NULL);
@@ -148,9 +148,9 @@ VAMP_TEST(MemoryDebugger, CheckListIntegrity)
     }
 
     //Free the allocations.
-    debugger->debug_free(debugger, (void *)&mem1);
-    debugger->debug_free(debugger, (void *)&mem2);
-    debugger->debug_free(debugger, (void *)&mem3);
+    debugger->debug_free(debugger, (void **)&mem1);
+    debugger->debug_free(debugger, (void **)&mem2);
+    debugger->debug_free(debugger, (void **)&mem3);
 
     //Check the state of the debugger.
     VAMP_ASSERT(debugger->m_head == NULL);

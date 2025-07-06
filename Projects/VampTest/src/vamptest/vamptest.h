@@ -13,7 +13,7 @@
  /**
   * @brief Max chars for suite or test names.
   */
-#define VAMPTEST_MAX_NAME_CHARACTERS 32
+#define VAMPTEST_MAX_NAME_CHARACTERS 256
 
 
 /**

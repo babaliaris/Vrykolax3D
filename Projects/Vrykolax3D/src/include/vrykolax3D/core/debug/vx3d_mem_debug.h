@@ -5,6 +5,7 @@
 /**
  * @file
  * @brief Tools for memory allocation debugging.
+ * @author Bampaliaris Nikolaos
  */
 
 #define VX3D_MEM_MAGIC_NUM 0xB10CB10CB10CB10C
